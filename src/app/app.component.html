@@ -1,0 +1,25 @@
+<div class="poller">
+  <img [ngClass]="{spinner: (fetching$ | async).fetching}" src="assets/bitcoin-coin.svg" width="50" height="50" />
+  <h2>Current Bitcoin Price</h2>
+  <div class="wrap">
+    <ul class="currency-list">
+      <li>
+        <span class="currency">USD</span>
+        <span class="amount">${{ (fetching$ | async)?.usd }}</span>
+      </li>
+      <li>
+        <span class="currency">GBP</span>
+        <span class="amount">£{{ (fetching$ | async)?.gbp }}</span>
+      </li>
+      <li>
+        <span class="currency">EUR</span>
+        <span class="amount">€{{ (fetching$ | async)?.eur }}</span>
+      </li>
+    </ul>
+  </div>
+  <small>last successful fetch: {{ (fetching$ | async)?.lastFetched }}</small>
+</div>
+
+<div class="icon-credit">
+  <span>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></span>
+</div>
